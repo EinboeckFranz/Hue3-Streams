@@ -15,11 +15,9 @@ public class Weapon {
     private final int speed;
     private final int strength;
     private int value;
-    Printable printWeaponsNormal = weapons -> {
-        weapons.forEach(System.out::println);
-    };
+    Printable printWeaponsNormal = weapons -> weapons.forEach(System.out::println);
     Printable printWeaponsAsTable = weapons -> {
-        //TODO
+
     };
 
     public Weapon(String name, CombatType combatType, DamageType damageType, int damage, int speed, int strength, int value) {
@@ -90,15 +88,6 @@ public class Weapon {
     @Override
     public int hashCode() {
         return Objects.hash(name, combatType, damageType, damage, speed, strength, value);
-    }
-
-    private void printTableHeaders() {
-        for (int j = 0; j < 7; j++) {
-            System.out.println("+");
-            for (int i = 0; i < 18; i++)
-                System.out.print("-");
-            System.out.print("+");
-        }
     }
 
     public List<Weapon> readInWeapons(String path) {
