@@ -15,7 +15,10 @@ public class Weapon {
     private final int speed;
     private final int strength;
     private int value;
-    Printable printWeaponsNormal = weapons -> weapons.forEach(System.out::println);
+    Printable printWeaponsNormal = weapons -> {
+        List<Weapon> sortedWeapons = Weapon.sortListByCombatDamageName(weapons);
+        sortedWeapons.forEach(System.out::println);
+    };
     Printable printWeaponsAsTable = weapons -> {
 
     };
@@ -72,8 +75,6 @@ public class Weapon {
                 ", speed=" + speed +
                 ", strength=" + strength +
                 ", value=" + value +
-                ", printWeaponsNormal=" + printWeaponsNormal +
-                ", printWeaponsAsTable=" + printWeaponsAsTable +
                 '}';
     }
 
