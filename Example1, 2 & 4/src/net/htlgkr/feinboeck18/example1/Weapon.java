@@ -23,8 +23,11 @@ public class Weapon {
 
     public Printable printWeaponsAsTable = weapons -> {
         int[] biggestValuesLength = getBiggestValueOfWeaponParameter(weapons);
+        //PRINT HEADER
         printHeaderFooter(biggestValuesLength);
+        //PRINT TABLE
         printWeaponsList(weapons, biggestValuesLength);
+        //PRINT FOOTER
         printHeaderFooter(biggestValuesLength);
         System.out.print("\n");
     };
