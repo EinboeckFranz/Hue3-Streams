@@ -8,12 +8,12 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class Weapon {
-    private String name;
-    private CombatType combatType;
-    private DamageType damageType;
-    private int damage;
-    private int speed;
-    private int strength;
+    private final String name;
+    private final CombatType combatType;
+    private final DamageType damageType;
+    private final int damage;
+    private final int speed;
+    private final int strength;
     private int value;
     Printable printWeaponsNormal = weapons -> {
         List<Weapon> sortedWeapons = Weapon.sortListByCombatDamageName(weapons);
@@ -24,7 +24,6 @@ public class Weapon {
         printHeaderFooter(biggestValuesLength);
         weapons.forEach(weapon -> {
             System.out.print("\n| ");
-
             printPart(biggestValuesLength[0], weapon.getName());
             printPart(biggestValuesLength[1], weapon.getCombatType().toString());
             printPart(biggestValuesLength[2], weapon.getDamageType().toString());
@@ -36,15 +35,6 @@ public class Weapon {
         System.out.print("\n");
         printHeaderFooter(biggestValuesLength);
     };
-
-    public Weapon() {
-        List<Weapon> weapons = readInWeapons("weapons.csv");
-        printWeaponsAsTable.print(weapons);
-    }
-
-    public static void main(String[] args) {
-        Weapon wpn = new Weapon();
-    }
 
     public Weapon(String name, CombatType combatType, DamageType damageType, int damage, int speed, int strength, int value) {
         this.name = name;
